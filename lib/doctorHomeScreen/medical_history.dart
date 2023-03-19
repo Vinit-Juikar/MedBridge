@@ -1,41 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:medbridge/patientHomeScreen/patientMedicalHistoryAdder.dart';
 
 import '../login/firebase/auth.dart';
 
-class PatientMedicalHistory extends StatelessWidget {
-  PatientMedicalHistory({super.key});
-
-  List DateTime = [
-    " March 18, 2023 Saturday ",
-    " March 11, 2023 Saturday ",
-    " March 4, 2023 Saturday ",
-    " February 25, 2023 Saturday ",
-  ];
-  List Doctor = [
-    "Dr. Ayesha Khan",
-    "Dr. Sanjay Sharma",
-    "Dr. Ritu Patel",
-    "Dr. Prakash Singh",
-  ];
-  List Profession = [
-    "Endocrinologist",
-    "Pulmonologist",
-    "Gastroenterologist",
-    "Cardiologist",
-  ];
-  List Disease = [
-    "Diabetes",
-    "Asthma",
-    "Inflammatory bowel disease",
-    "Artery disease",
-  ];
+class doctorMedicalHistory extends StatelessWidget {
+  var appId;
+  doctorMedicalHistory(this.appId, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Patient Medical History'),
+      ),
       body: SafeArea(
         child: Expanded(
           child: Column(
@@ -70,28 +48,18 @@ class PatientMedicalHistory extends StatelessWidget {
                   ],
                 ),
               ),
-              Expanded(child: PatientMedicalHistoryfull()),
+              Expanded(child: doctorMedicalHistoryfull(appId)),
             ],
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: const Color(0xFF797EE4),
-        onPressed: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const PatientMedicalHistoryAdder(),
-              ));
-        },
-        child: const Icon(Icons.add),
       ),
     );
   }
 }
 
-class PatientMedicalHistoryfull extends StatelessWidget {
-  PatientMedicalHistoryfull({super.key});
+class doctorMedicalHistoryfull extends StatelessWidget {
+  var appId;
+  doctorMedicalHistoryfull(this.appId, {super.key});
   var myList = [];
   final Future<String> _calculation = Future<String>.delayed(
     const Duration(seconds: 1),
@@ -103,11 +71,11 @@ class PatientMedicalHistoryfull extends StatelessWidget {
     var number = '';
     number = user?.phoneNumber ?? 'User email';
     CollectionReference users =
-        FirebaseFirestore.instance.collection('patient');
-    DocumentReference docRef = users.doc(number);
+        FirebaseFirestore.instance.collection('appointments');
+    DocumentReference docRef = users.doc(appId);
     docRef.get().then((DocumentSnapshot documentSnapshot) {
       if (documentSnapshot.exists) {
-        myList = documentSnapshot.get('reports');
+        myList = documentSnapshot.get('medicine');
         print(myList);
       } else {}
     });

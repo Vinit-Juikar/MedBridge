@@ -1,12 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:medbridge/doctorHomeScreen/view_appointments.dart';
 
 import '../login/firebase/auth.dart';
+import 'medical_history.dart';
 
-class DoctorsAppointmentss extends StatelessWidget {
-  DoctorsAppointmentss({super.key});
+class DoctorsAppointments extends StatelessWidget {
+  DoctorsAppointments({super.key});
   var myList = [];
   final Future<String> _calculation = Future<String>.delayed(
     const Duration(seconds: 5),
@@ -138,7 +138,7 @@ class AppointmentSpecific extends StatelessWidget {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => DoctorViewAppointment(appId),
+                            builder: (context) => doctorMedicalHistory(appId),
                           ));
                     },
                     child: Container(
