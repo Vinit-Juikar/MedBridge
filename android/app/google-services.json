@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "90785869226",
+    "project_id": "medbridge-ec60f",
+    "storage_bucket": "medbridge-ec60f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90785869226:android:662344f7122d13ed46cfd3",
+        "android_client_info": {
+          "package_name": "com.example.medbridge"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "90785869226-3nj0u3phbf9dlih1g50e24kipk7u5fug.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medbridge",
+            "certificate_hash": "e6875156d4fd08509f1d12dd81a0344bdf8f7b21"
+          }
+        },
+        {
+          "client_id": "90785869226-j8r8ej511tohmd3e5utn534a55hf4blp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAr5R6tRJfT_07gLDJe5Y_meLhFUCXwW6w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "90785869226-j8r8ej511tohmd3e5utn534a55hf4blp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
